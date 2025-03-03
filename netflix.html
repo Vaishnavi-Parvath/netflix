@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Netflix</title>
+    <style>
+        .section1 {
+            width: 100vw;
+            height: 100vh;
+            background-image: url(cover.jpg);
+            background-size: cover;
+            /* background-color: rgba(0, 0, 0, 0.367); */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .section1::after {
+            width: 100%;
+            height: 100%;
+            content: '';
+            background-color: rgba(0, 0, 0, 0.574);
+            position: absolute;
+            opacity: 0.7;
+        }
+
+        .section1::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            height: 50px;
+            width: 100%;
+            background-color: black;
+            border-top: 5px solid rgb(233, 44, 44);
+            box-shadow: inset 5px 10px rgba(51, 51, 196, 0.429);
+            border-radius: 50% 50% 0 0;
+            z-index: 10;
+        }
+
+        .centerbox {
+            width: 500px;
+            height: 400px;
+            /* background-color: red;display: flex;
+            justify-content: center;
+            align-items: center; */
+            /* position:relative; */
+            z-index: 10;
+        }
+
+        .text1 {
+            font-size: 50px;
+            font-weight: 800;
+            color: white;
+            /* text-shadow: 0 0 3px; */
+        }
+
+        .text2 {
+            font-size: 20px;
+            font-weight: 500;
+            color: white;
+            /* text-shadow: 0 0 3px; */
+        }
+
+        .logo {
+            width: 250px;
+            height: 50px;
+            /* background-color: red; */
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+        }
+
+        .logoimg {
+            width: 300px;
+        }
+
+        .top-right {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            /* background-color: red; */
+            width: 250px;
+            /* height:100px; */
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dropdown {
+            /* background-color: red; */
+            border: 3px solid white;
+            border-radius: 10px;
+
+        }
+
+        .signin {
+            color: white;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            width: 100px;
+        }
+
+        .input-type {
+            outline: none;
+            font-size: 30px;
+            color: white;
+        }
+
+        .center {
+            display: flex;
+            gap: 10px;
+            /* height:30px; */
+            margin-top: 20px;
+            /* background-color: aqua; */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mail {
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 10px;
+            height: 40px;
+            /* font: white; */
+            width: 400px;
+        }
+
+        .getst {
+            width: 150px;
+            height: 40px;
+            border: none;
+            border-radius: 10px;
+            background-color: rgb(192, 27, 27);
+            color: white;
+            padding: 10px;
+        }
+
+        .section2 {
+            background-color: black;
+            height: auto;
+        }
+
+        .boxes {
+            height: auto;
+            gap: 50px;
+            padding: 25px 30px 25px 30px;
+            overflow: scroll;
+            overflow-y: hidden;
+            scrollbar-width: none;
+            margin: 0 120px;
+            margin-right: 150px;
+            display: flex;
+        }
+
+        .rating {
+            position: absolute;
+            bottom: -45px;
+            left: -25px;
+            font-size: 150px;
+            font-weight: 500;
+            color: black;
+            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.775);
+        }
+
+        .box1 {
+            min-width: 197px;
+            height: 276px;
+            background-image: url(top1.webp);
+            background-size: cover;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 6px black;
+            position: relative;
+            border-radius: 25px;
+        }
+
+        .box1:hover {
+            scale: 1.2;
+            /* border-radius: 25px; */
+        }
+
+        .box2 {
+            min-width: 197px;
+            height: 276px;
+            background-image: url(top2.webp);
+            background-size: cover;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 6px black;
+            position: relative;
+            border-radius: 25px;
+        }
+
+        .box2:hover {
+            scale: 1.2;
+        }
+
+        .box3 {
+            min-width: 197px;
+            height: 276px;
+            background-image: url(top3.webp);
+            background-size: cover;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 6px black;
+            position: relative;
+            border-radius: 25px;
+        }
+
+        .box3:hover {
+            scale: 1.2;
+        }
+
+        .box4 {
+            min-width: 197px;
+            height: 276px;
+            background-image: url(top4.webp);
+            background-size: cover;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 6px black;
+            position: relative;
+            border-radius: 25px;
+        }
+
+        .box4:hover {
+            scale: 1.2;
+        }
+
+        .box5 {
+            min-width: 197px;
+            height: 276px;
+            background-image: url(top5.webp);
+            background-size: cover;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 6px black;
+            position: relative;
+            border-radius: 25px;
+        }
+
+        .box5:hover {
+            scale: 1.2;
+        }
+
+        .box6 {
+            min-width: 197px;
+            height: 276px;
+            background-image: url(top6.webp);
+            background-size: cover;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 6px black;
+            position: relative;
+            border-radius: 25px;
+        }
+
+        .box6:hover {
+            scale: 1.2;
+        }
+
+        .box7 {
+            min-width: 197px;
+            height: 276px;
+            background-image: url(top7.webp);
+            background-size: cover;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 6px black;
+            position: relative;
+            border-radius: 25px;
+        }
+
+        .box7:hover {
+            scale: 1.2;
+        }
+
+        .boxes2 {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding-top: 15px;
+            /* flex-wrap: wrap; */
+        }
+
+        .boxsec2 {
+            /* background: #141414; */
+            background: #0f0c29;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            height: 300px;
+            position: relative;
+        }
+
+        .boxsec2 h4 {
+            color: white;
+        }
+
+        .boxsec2 p {
+            color: white;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        .boxsec2 img {
+            position: absolute;
+            bottom: 20px;
+            right: 15px;
+        }
+
+        .add {
+            .add-box {
+                width: 97%;
+                font-size: 25px;
+                color: white;
+                background-color: rgba(128, 128, 128, 0.374);
+                border-radius: 2px;
+                padding: 24px 25px;
+                margin: 5px 0;
+                cursor: pointer;
+                transition: 0.3s all ease;
+            }
+
+            .add-box:hover {
+                background-color: rgba(255, 255, 255, 0.296);
+            }
+
+            span {
+                font-weight: 900;
+            }
+        }
+        .mail {
+            background-color: rgba(0, 0, 0, 0.676);
+            border: 1px solid rgba(255, 255, 255, 0.554);
+            border-radius: 5px;
+            padding: 13px 15px;
+            width: 500px;
+            color: white;
+        }
+
+        .mail:focus {
+            background-color: rgba(0, 0, 0, 0.676);
+            outline: 2px solid white;
+            outline-offset: 2px;
+            box-shadow: none;
+            color: white;
+        }
+
+        .foot .bt {
+            padding: 14px;
+            width: 200px;
+            text-shadow: 0 0 5px black;
+        }
+
+        .foot {
+            ::placeholder {
+                color: white;
+            }
+        }
+
+        .sect {
+            gap: 5px;
+        }
+
+
+
+
+        .items {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            height: 160px;
+        }
+
+        .footer {
+            padding: 40px 10%;
+
+            .drop {
+                color: white;
+            }
+
+            .drop:hover {
+                color: white;
+            }
+        }
+
+        .footer .ind {
+            padding-top: 20px;
+        }
+
+        .footer u,
+        p {
+            color: gray;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .footer .col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer .col u {
+            margin-bottom: 10px;
+        }
+
+        .footer .contact {
+            margin-bottom: 20px;
+        }
+        @media(max-width:1270px) {
+            .boxes2 {
+                height: auto;
+                flex-wrap: wrap;
+            }
+
+            .boxes2 .boxsec2 {
+                width: 45%;
+                height: 225px;
+            }
+
+            .middle {
+                h1 {
+                    color: white;
+                    font-size: 45px;
+                    font-weight: 700;
+                    text-shadow: 0 0 10px black;
+                }
+
+                .cancel {
+                    color: rgba(255, 255, 255, 0.809);
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin-bottom: 20px;
+                    text-shadow: 0 0 10px black;
+                }
+
+                .create {
+                    color: rgba(255, 255, 255, 0.881);
+                    font-size: 13px;
+                    font-weight: 500;
+                    text-shadow: 0 0 10px black;
+                }
+            }
+
+            .box h4 {
+                font-size: 80px;
+                position: absolute;
+                bottom: -10px;
+                left: -20px;
+            }
+
+            .box{
+                width: 140px;
+                border-radius: 10px;
+            }
+
+            .boxes {
+                gap: 30px;
+            }
+            .centerbox {
+                .text1 {
+                    color: white;
+                    font-size: 45px;
+                    font-weight: 700;
+                    text-shadow: 0 0 10px black;
+                }
+
+                .text2 {
+                    color: rgba(255, 255, 255, 0.809);
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin-bottom: 20px;
+                    text-shadow: 0 0 10px black;
+                }
+            }
+            .box p {
+                font-size: 80px;
+                position: absolute;
+                bottom: -10px;
+                left: -20px;
+            }
+
+            .box img {
+                width: 140px;
+                border-radius: 10px;
+            }
+
+            .boxes {
+                gap: 30px;
+            }
+
+        }
+        @media(max-width:955px) {
+            .top-right {
+                top: 40px;
+                right: 100px;
+
+                .drop {
+                    width: 90px;
+                    font-size: 12px;
+                }
+            }
+
+            .logoimg {
+                width: 250px;
+                top: 25px;
+                left: 45px;
+            }
+
+            .signin{
+                width: 80px;
+                font-size: 15px;
+                font-weight: 500;
+                padding: 4px 4px;
+            }
+
+            .boxes2 {
+                height: auto;
+                flex-wrap: wrap;
+            }
+
+            .boxes2 .boxsec2 {
+                width: 95%;
+                height: 180px;
+            }
+
+            .center {
+                width: 100%;
+                margin-top: 20px;
+            }
+            .foot {
+                width: auto;
+
+                .create {
+                    margin-right: 40px;
+                }
+
+                .mail {
+                    width: auto;
+                }
+
+                .bt {
+                    padding: 13px;
+                    width: auto;
+                }
+            }
+
+            .box p {
+                font-size: 70px;
+                position: absolute;
+                bottom: -10px;
+                left: -20px;
+            }
+
+            .box img {
+                width: 120px;
+                border-radius: 10px;
+            }
+
+            .boxes {
+                gap: 25px;
+            }
+
+        }
+        @media(max-width:600px) {
+            .center {
+                height: auto;
+                flex-direction: column;
+                width: 90%;
+                margin-top: 20px;
+            }
+            .foot {
+                .mail {
+                    width: 400px;
+                }
+
+                .create {
+                    padding-left: 40px;
+                }
+            }
+            .sect {
+                flex-direction: column;
+            }
+            .logoimg {
+                width: 200px;
+                top: 25px;
+                left: 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid section1">
+        <div class="logo">
+            <img src="Netflix_Logo_PMS.png" alt="" srcset="" class="logoimg">
+        </div>
+        <div class="top-right">
+            <div class="dropdown">
+                <button class="btn btn-transparent dropdown-toggle text-light" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="fa-solid fa-language"></i> English
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Hindi</a></li>
+                </ul>
+            </div>
+            <input type="button" value="Sign In" class="bg-danger signin">
+        </div>
+        <div class="centerbox">
+            <h1 class="text1">Unlimited movies,</h1>
+            <h1 class="text1"> TV shows and more</h1>
+            <p class="text2">Starts at ₹149. Cancel at any time.</p>
+            <p class="text2">Ready to watch? Enter your email to create or restart your membership.</p>
+            <div class="center">
+                <input type="email" name="email" id="email" placeholder="Enter Email" class="mail">
+                <!-- <div class="form-floating mb-3">
+                    <input type="email" class="form-control bg-transparent" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                  </div> -->
+                <input type="button" value="Get Started   &gt;" class="getst">
+            </div>
+        </div>
+    </div>
+    <!-- section2 -->
+    <div class="section2">
+        <h5 class="text-light p-5">Trending Now</h5>
+        <div class="boxes">
+            <div class="box1 box">
+                <p class="rating">1</p>
+            </div>
+            <div class="box2 box">
+                <p class="rating">2</p>
+            </div>
+            <div class="box3 box">
+                <p class="rating">3</p>
+            </div>
+            <div class="box4 box">
+                <p class="rating">4</p>
+            </div>
+            <div class="box5 box">
+                <p class="rating">5</p>
+            </div>
+            <div class="box6 box">
+                <p class="rating">6</p>
+            </div>
+            <div class="box7 box">
+                <p class="rating">7</p>
+            </div>
+        </div>
+        <h5 class="text-light p-5">More reasons to join</h5>
+        <div class="boxes2">
+            <div class="boxsec2">
+                <h4>Enjoy on your TV</h4>
+                <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+                <img src="./join1.png" width="70px" alt="">
+            </div>
+            <div class="boxsec2">
+                <h4>Download your shows to watch offline</h4>
+                <p>Save your favourites easily and always have something to watch.</p>
+                <img src="./join2.png" width="70px" alt="">
+            </div>
+            <div class="boxsec2">
+                <h4>Watch everywhere</h4>
+                <p>Stream unlimited movies and TV shows on your phone, tablet, laptop and TV.</p>
+                <img src="./join3.png" width="70px" alt="">
+            </div>
+            <div class="boxsec2">
+                <h4>Create profiles for kids</h4>
+                <p>Send kids on adventures with their favourite characters in a space made just for them — free with
+                    your membership.</p>
+                <img src="./join4.png" width="70px" alt="">
+            </div>
+        </div>
+        <h5 class="text-light p-5">Frequently asked questions</h5>
+        <div class="container add d-flex justify-content-center align-items-center flex-column">
+            <div class="add-box d-flex justify-content-between">What is Netflix? <span>+</span></div>
+            <div class="add-box d-flex justify-content-between">How much does Netflix cost? <span>+</span></div>
+            <div class="add-box d-flex justify-content-between">Where can I watch? <span>+</span></div>
+            <div class="add-box d-flex justify-content-between">How do I cancel? <span>+</span></div>
+            <div class="add-box d-flex justify-content-between">What can I watch on Netflix? <span>+</span></div>
+            <div class="add-box d-flex justify-content-between mb-5">Is Netflix good for kids? <span>+</span></div>
+        </div>
+        <div class="container middle foot d-flex justify-content-center align-items-center flex-column">
+            <p class="create">Ready to watch? Enter your email to create or restart your membership.</p>
+            <div class="d-flex sect justify-content-center align-items-center">
+                <div>
+                    <input type="email" class="mail" name="mail" placeholder="Email Address">
+                </div>
+                <button type="button" class="btn bt btn-danger">Get Started <i style="font-size: 20px;"
+                        class="fa-solid fa-chevron-right"></i></button>
+                </button>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="contact">
+                <p>Questions? Call <u>000-800-919-1743</u></p>
+            </div>
+            <div class="items">
+                <div class="col">
+                    <u>FAQ</u>
+                    <u>Investor Relations</u>
+                    <u>Privacy</u>
+                    <u>Speed Test</u>
+                </div>
+                <div class="col">
+                    <u>Help Centre</u>
+                    <u>Jobs</u>
+                    <u>Cookie Preferences</u>
+                    <u>Legal Notices</u>
+                </div>
+                <div class="col">
+                    <u>Account</u>
+                    <u>Ways to Watch</u>
+                    <u>Corporate Information</u>
+                    <u>Only on Netflix</u>
+                </div>
+                <div class="col">
+                    <u>Media Centre</u>
+                    <u>Terms of Use</u>
+                    <u>Contact Us</u>
+                </div>
+            </div>
+            <div class="dropdown " style="width:125px;border:none">
+                <button class="btn border-1 border-light drop dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="fa-solid fa-language"></i> English
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">English</a></li>
+                    <li><a class="dropdown-item" href="#">Hindi</a></li>
+                </ul>
+            </div>
+            <p class="ind">Netflix India</p>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
